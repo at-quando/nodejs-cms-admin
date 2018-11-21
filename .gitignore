@@ -1,0 +1,7 @@
+/node_modules
+/src/uploads/
+uploads/
+.DS_Store
+/.vscode
+dist/
+data/

@@ -1,0 +1,27 @@
+version: '2' # specify docker-compose version
+
+# Define the services/containers to be run
+services:
+  express: #name of the second service
+    build: . # specify the directory of the Dockerfile
+    volumes:
+      - .:/express-backend/:rw
+      - express_webmodule:/express-backend/node_modules
+    ports:
+      - "9999:3000" #specify ports forewarding
+    restart: always
+    links:
+      - database # link this service to the database service
+    depends_on:
+      - database
+
+  database: # name of the third service
+    image: mongo # specify image to build container from
+    ports:
+      - "27018:27017" # specify port forewarding
+    volumes:
+      - ./data:/data/db
+    
+
+volumes:
+  express_webmodule:
