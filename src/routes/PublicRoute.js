@@ -2,6 +2,7 @@
 const express = require('express');
 const router = express.Router();
 const VideoCtrl = require('../controller/VideosController');
+const UserCtrl = require('../controller/UsersController');
 const ArticleCtrl = require('../controller/ArticlesController');
 const AlbumCtrl = require('../controller/AlbumsController');
 const PictureCtrl = require('../controller/PicturesController');
