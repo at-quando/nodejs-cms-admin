@@ -30,7 +30,9 @@ var storage = multer.diskStorage({
 
 var upload = multer({ storage: storage });
 
-router.post('/',  AppCtrl.check, upload.any(), PicturesController.create);
+router.post('/', AppCtrl.check, upload.any(), PicturesController.create);
+
+router.post('/avatar', AppCtrl.check, upload.any(), PicturesController.uploadAvatar);
 
 router.delete('/', PicturesController.destroy);
 

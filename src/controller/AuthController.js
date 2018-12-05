@@ -9,11 +9,13 @@ exports.login = function(req, res, next) {
     return;
   } else {
     User.findOne({email: req.body.email, password: req.body.password}, (err, user) => {
+      var defaultTeam = user.agencies.filter(x=> x.default == true)[0]
       const token = jwt.sign({
         id: user._id,
         email: user.email,
+        role: defaultTeam.role
       }, 'mykey', {expiresIn: '3 hours'});
-      res.status(200).send({access_token: token, team: user.agencies.filter(x=> x.default == true)[0]._id})
+      res.status(200).send({access_token: token, team: defaultTeam._id})
     });
   }
 }
@@ -32,6 +34,6 @@ exports.logout = function(req, res, next) {
 
 exports.check = function(req, res, next) {
   User.find({_id: req.user.id}).populate('agency').exec((err, user) => {
-    console.log(user)
+    console.log(123123, user)
   });
 }

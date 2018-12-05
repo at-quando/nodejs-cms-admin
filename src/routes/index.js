@@ -10,6 +10,11 @@ const publicRoutes = require('./PublicRoute');
 const pictureRoutes = require('./PictureRoute');
 const contractRoutes = require('./ContractRoute');
 const packageRoutes = require('./PackageRoute');
+const employeeRoutes = require('./EmployeeRoute');
+const departmentRoutes = require('./DepartmentRoute');
+const productTypeRoutes = require('./ProductTypeRoute');
+const productRoutes = require('./ProductRoute');
+const todoRoutes = require('./TodoRoute');
 const jwt = require('jsonwebtoken');
 const expressjwt = require("express-jwt");
 
@@ -33,14 +38,19 @@ router.use('/api', publicRoutes);
 
 // router.use('/api/facilities', facilityRoutes);
 router.use('/api/app', jwtCheck, appRoutes);
-router.use('/api/users', userRoutes);
+router.use('/api/users', jwtCheck, userRoutes);
 router.use('/api/agencies', agencyRoutes);
 router.use('/api/auth', authRoutes);
 router.use('/api/albums',jwtCheck, albumRoutes);
 router.use('/api/videos',jwtCheck, videoRoutes);
-router.use('/api/articles',jwtCheck, articleRoutes);
-router.use('/api/pictures',jwtCheck, pictureRoutes);
+router.use('/api/articles', jwtCheck, articleRoutes);
+router.use('/api/pictures', jwtCheck, pictureRoutes);
 router.use('/api/contracts',jwtCheck, contractRoutes);
 router.use('/api/packages',jwtCheck, packageRoutes);
+router.use('/api/productTypes',jwtCheck, productTypeRoutes);
+router.use('/api/products', jwtCheck, productRoutes);
+router.use('/api/departments', jwtCheck, departmentRoutes);
+router.use('/api/employees', jwtCheck, employeeRoutes);
+router.use('/api/todos', jwtCheck, todoRoutes);
 
 module.exports = router;
