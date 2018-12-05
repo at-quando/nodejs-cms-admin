@@ -24,6 +24,8 @@ router.get('/contracts/:id', ContractCtrl.show);
 
 router.get('/albums/:id', AlbumCtrl.show);
 
+router.post('/api/users', UserCtrl.create);
+
 router.get('/pictures/:folder/:id', function (req, res, next) {
   console.log(1234,req.params.folder, req.params.id)
   res.sendfile(path.resolve(`./uploads/${req.params.folder}/${req.params.id}`));
