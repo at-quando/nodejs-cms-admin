@@ -19,6 +19,14 @@ if (cluster.isMaster) {
   mongoose.Promise = global.Promise;
 
   if (!module.parent) {
+    // mongoose.connect(config.db.url);
+    // mongoose.Promise = global.Promise;
+    // const db = mongoose.connection;
+    // db.on('error', console.error.bind(123123, 'connection error:'));
+    // db.once('open', function callback () {
+    //   app.listen(config.port, onStarted);
+    //   app.on('listening', onListening);
+    // });
     mongoose.connect(config.db.url).then(() => {
       console.log("Sucsess connected database");
     }).catch(err =>{

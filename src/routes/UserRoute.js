@@ -10,7 +10,9 @@ const Validation = require('../lib/Validation');
 router.get('/', UserCtrl.index);
 
 /* GET all users. */
-router.get('/me', UserCtrl.aboutMe);
+router.get('/me', AppCtrl.check, UserCtrl.aboutMe);
+
+router.post('/me', AppCtrl.check, UserCtrl.editMe);
 /* Show a user. */
 router.get('/:id', UserCtrl.show);
 
