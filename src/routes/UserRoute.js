@@ -17,7 +17,7 @@ router.post('/me', AppCtrl.check, UserCtrl.editMe);
 router.get('/:id', UserCtrl.show);
 
 /* Create a user. */
-router.post('/', UserCtrl.create);
+// router.post('/', UserCtrl.create);
 
 /* Update a user. */
 router.put('/:id', UserCtrl.update);
