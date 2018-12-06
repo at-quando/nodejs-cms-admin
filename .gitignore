@@ -6,4 +6,5 @@ uploads/
 dist/
 data/
 docker-compose.yml
+Dockerfile
 .env

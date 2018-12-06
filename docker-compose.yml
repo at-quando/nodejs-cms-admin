@@ -15,7 +15,7 @@ services:
       - .:/express-backend/:rw
       - express_webmodule:/express-backend/node_modules
     ports:
-      - "9999:4001" #specify ports forewarding
+      - "9999:4002" #specify ports forewarding
     restart: always
     depends_on:
       - database
