@@ -15,3 +15,6 @@ RUN npm install
 
 # Get all the code needed to run the app
 COPY . /express-backend
+
+# Expose the port the app runs in
+CMD ["npm", "run", "docker"]
