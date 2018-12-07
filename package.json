@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "./node_modules/.bin/nodemon src/app.js",
-    "docker": "cross-env NODE_ENV=production node src/app"
+    "docker": "node src/app"
   },
   "dependencies": {
     "babel-register": "^6.26.0",
@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "express-jwt": "^5.3.1",
     "express-validation": "^1.0.2",
+    "http": "0.0.0",
     "http-status": "^1.2.0",
     "joi": "^13.6.0",
     "jsonwebtoken": "^8.3.0",

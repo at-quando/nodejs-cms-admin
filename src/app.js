@@ -38,7 +38,7 @@ if (cluster.isMaster) {
 
   if (!module.parent) {
     // listen on port config.port
-    app.listen(config.port, onStarted);
+    app.listen(config.port, '0.0.0.0');
     app.on('error', onError);
     app.on('listening', onListening);
   }
