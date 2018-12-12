@@ -4,17 +4,41 @@ var Schema = mongoose.Schema;
 const UserSchema = new Schema({
   name: String,
   email: String,
-  password: String,
-  age: Number,
+  password:  {
+    type: String,
+    default: '123456'
+  },
+  age: Date,
   fbUrl: String,
-  department: Object,
-  phone: String,
-  bankacc: String,
-  bank: String,
-  description: String,
-  address: String,
+  department: {
+    type: Object,
+    default: 0
+  },
+  phone: {
+    type: String,
+    default: ''
+  },
+  bankacc: {
+    type: String,
+    default: ''
+  },
+  bank: {
+    type: String,
+    default: ''
+  },
+  description: {
+    type: String,
+    default: ''
+  },
+  address: {
+    type: String,
+    default: ''
+  },
   accessToken: String,
-  avatar: String,
+  avatar: {
+    type: String,
+    default: ''
+  },
   agencies: {
     type: Array
   },

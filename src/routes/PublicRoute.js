@@ -21,9 +21,11 @@ router.get('/videos/:id', VideoCtrl.show);
 
 router.get('/articles/:id', ArticleCtrl.show);
 
-router.get('/contracts/:id', ContractCtrl.show);
+// router.get('/contracts/:id', ContractCtrl.show);
 
 router.get('/albums/:id', AlbumCtrl.show);
+
+router.get('/contracts/:token/:id', ContractCtrl.showToken);
 
 router.post('/api/users', UserCtrl.create);
 

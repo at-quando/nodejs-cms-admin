@@ -13,6 +13,8 @@ COPY package.json /express-backend
 # Install dependecies
 RUN npm install
 
+EXPOSE 3001
+
 # Get all the code needed to run the app
 COPY . /express-backend
 

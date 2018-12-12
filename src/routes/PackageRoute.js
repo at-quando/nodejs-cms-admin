@@ -7,7 +7,7 @@ const validate = require('express-validation');
 const Validation = require('../lib/Validation');
 
 /* Show a user. */
-// router.get('/:id', VideoCtrl.show);
+router.get('/', AppCtrl.check, PackageCtrl.index);
 
 /* Create a user. */
 router.post('/', AppCtrl.check, PackageCtrl.create);

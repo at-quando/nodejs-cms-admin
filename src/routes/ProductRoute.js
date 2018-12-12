@@ -11,6 +11,8 @@ router.get('/info/:id', ProductCtrl.show);
 /* Show a user. */
 router.get('/:type', AppCtrl.check, ProductCtrl.index);
 
+router.get('/', AppCtrl.check, ProductCtrl.indexOrder);
+
 /* Create a user. */
 // router.get('/', AppCtrl.check, ProductTypeCtrl.index);
 

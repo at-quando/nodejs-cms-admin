@@ -37,8 +37,10 @@ exports.destroy = function(req, res, next) {
 
 exports.uploadAvatar = function(req, res, next) {
   const link = req.files.map(x => `${x.fieldname}/${x.filename}`)
-  User.findByIdAndUpdate({_id: req.user.id}, {avatar: link[0]}, (err, user) => {
+  console.log(link, req.files)
+  User.findByIdAndUpdate(req.user.id, { $set:{avatar: link[0]}}, { new: true }, (err, userUpdate) => {
     if (err) res.status(404).send(err);
-    res.status(200).json(user);
+    console.log(123, userUpdate.avatar)
+    res.status(200).json(userUpdate);
   })
 }

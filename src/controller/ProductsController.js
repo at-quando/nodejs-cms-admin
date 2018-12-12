@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var Product = require('../models/product');
 var ProductType = require('../models/productType');
+var db = mongoose.connection;
 
 exports.show = function(req, res, next) {
   Product.findOne({_id: req.params.id}, (err, cont) => {
@@ -29,6 +30,16 @@ exports.index = function(req, res, next) {
   Product.find({agency_id: res.locals.header.team_id, 'type._id': mongoose.Types.ObjectId(req.params.type)}, (err, products) => {
     if (err) res.status(500).send(error);
     console.log(products);
+    res.status(200).json(products);
+  });
+}
+
+exports.indexOrder = function(req, res, next) {
+  db.collection('products').aggregate([
+    { $match: { agency_id: res.locals.header.team_id } },
+    { $group: { _id: "$type.name", products: { $push: "$$ROOT" }}}
+  ], function ( err, products) {
+    if (err) res.status(500).send(err);
     res.status(200).json(products);
   });
 }

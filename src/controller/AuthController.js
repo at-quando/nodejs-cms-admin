@@ -9,6 +9,7 @@ exports.login = function(req, res, next) {
     return;
   } else {
     User.findOne({email: req.body.email, password: req.body.password}, (err, user) => {
+      console.log(user)
       var defaultTeam = user.agencies.filter(x=> x.default == true)[0]
       const token = jwt.sign({
         id: user._id,

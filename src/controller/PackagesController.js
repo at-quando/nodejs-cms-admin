@@ -22,9 +22,9 @@ exports.create = function(req, res, next) {
 }
 
 exports.index = function(req, res, next) {
-  Contract.find({agency_id: res.locals.header.team_id}, (err, contracts) => {
+  Package.find({agency_id: res.locals.header.team_id}, (err, packs) => {
     if (err) res.status(500).send(error);
-    res.status(200).json(contracts);
+    res.status(200).json(packs);
   });
 }
 

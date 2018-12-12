@@ -16,10 +16,12 @@ exports.create = function(req, res, next) {
     if (err) res.status(404).send(err);
     Agency.findOne({_id: res.locals.header.team_id}, (error, agency) => {
       if (error) res.status(404).send(error);
+      agency['role'] = 1;
       let user = new User({
         name: req.body.name,
         department: depart,
         email: req.body.email,
+        role: 1,
         agencies: agency
       });
       user.save((error, employee) => {
