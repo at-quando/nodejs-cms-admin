@@ -14,6 +14,7 @@ const employeeRoutes = require('./EmployeeRoute');
 const departmentRoutes = require('./DepartmentRoute');
 const productTypeRoutes = require('./ProductTypeRoute');
 const productRoutes = require('./ProductRoute');
+const cityRoutes = require('./CityRoute');
 const todoRoutes = require('./TodoRoute');
 const jwt = require('jsonwebtoken');
 const expressjwt = require("express-jwt");
@@ -52,5 +53,6 @@ router.use('/api/products', jwtCheck, productRoutes);
 router.use('/api/departments', jwtCheck, departmentRoutes);
 router.use('/api/employees', jwtCheck, employeeRoutes);
 router.use('/api/todos', jwtCheck, todoRoutes);
+router.use('/api/cities', jwtCheck, cityRoutes);
 
 module.exports = router;
