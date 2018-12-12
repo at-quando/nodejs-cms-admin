@@ -10,6 +10,7 @@ const PackageSchema = new Schema({
   aspect: String,
   level: Number,
   duration: String,
+  products: Array,
   agency_id: {
     type: Schema.ObjectId,
     ref: 'Agency'

@@ -12,13 +12,25 @@ const ContractSchema = new Schema({
   label: String,
   code: String,
   numerator: Number,
-  members: Array,
+  members: {
+    type: Array,
+    default: []
+  },
   deposit: Number,
   note: String,
   access_token: String,
-  taken_dates: Array,
-  packages: Array,
-  costs: Array,
+  taken_dates: {
+    type: Array,
+    default: []
+  },
+  packages: {
+    type: Array,
+    default: []
+  },
+  costs: {
+    type: Array,
+    default: []
+  },
   total: Number,
   agency_id: {
     type: Schema.ObjectId,
